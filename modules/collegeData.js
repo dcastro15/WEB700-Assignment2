@@ -39,7 +39,13 @@ function getAllStudents() {
 
 function getTAs() {
   return new Promise(function(resolve, reject) {
-    var finalTAs = dataCollection.students.filter((student) => student.TA == true);
+    var finalTAs = [];
+    for (var i = 0; i < dataCollection.students.length; i++) {
+    var student = dataCollection.students[i];
+    if (student.TA == true) {
+        finalTAs.push(student);
+    }
+    }
 
     if (finalTAs.length == 0) {
       reject();
