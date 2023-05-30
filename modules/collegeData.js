@@ -11,17 +11,17 @@ var dataCollection = null;
 
 function initialize() {
   return new Promise((resolve, reject) => {
-    fs.readFile('./data/students.json', 'utf8', function(err, students) {
+    fs.readFile('./data/students.json', 'utf8', function(err, studentDataFromFile) {
       if (err) {
         reject();
         return;}
       
-      fs.readFile('./data/courses.json', 'utf8', function(err, courses) {
+      fs.readFile('./data/courses.json', 'utf8', function(err, courseDataFromFile) {
         if (err) {
           reject();
           return;}
         
-        dataCollection = new Data(JSON.parse(students), JSON.parse(courses));
+        dataCollection = new Data(JSON.parse(studentDataFromFile), JSON.parse(courseDataFromFile));
         resolve();
       });
     });
