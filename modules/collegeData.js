@@ -20,7 +20,7 @@ class Data {
 var dataCollection = null;
 
 function initialize() {
-  return new Promise((resolve, reject) => {
+  return new Promise(function(resolve, reject) {
     fs.readFile('./data/students.json', 'utf8', function(err, studentDataFromFile) {
       if (err) {
         reject();
